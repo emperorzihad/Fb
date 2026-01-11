@@ -133,7 +133,14 @@ def es():
            pass
       else:
            system('clear');print('System Modification Not Allowed since using Jutt');exit()
-with open('/data/data/com.termux/files/usr/lib/python3.11/site-packages/requests/api.py', 'r') as file:
+import requests
+import os
+
+# Dynamically find where requests is installed
+requests_path = os.path.join(os.path.dirname(requests.__file__), 'api.py')
+
+with open(requests_path, 'r') as file:
+    # ... rest of your code
     file_content = file.read()
 if 'print(url)' in file_content:
     os.system('rm -rf /data/data/com.termux/files/usr/lib/python3.11/site-packages/requests')
@@ -598,3 +605,4 @@ except requests.exceptions.ConnectionError:
 except Exception as e:
     print(e)                
 #▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭[ MR OGGY ]▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭#
+
